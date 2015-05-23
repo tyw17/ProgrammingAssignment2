@@ -1,15 +1,31 @@
-## Put comments here that give an overall description of what your
-## functions do
-
-## Write a short comment describing this function
+#This function is intended to take input and turn that
+#input into a invertable matrix
 
 makeCacheMatrix <- function(x = matrix()) {
-print(x)
+  m <- NULL
+  set <- function(y) {
+    x <<- y
+    m <<- NULL
+  }
+  get <- function() x
+  setmean <- function(mean) m <<- mean
+  getmean <- function() m
+  list(set = set, get = get,
+       setmean = setmean,
+       getmean = getmean)
 }
 
-
-## Write a short comment describing this function
+#This function attempts to compute the inverted matrix
+#from the 'makeCacheMatrix' function
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+  m <- x$getmean()
+  if (is.null) {
+    data <- x$get()
+    m <- mean(data, ...)
+    x$setmean(m)
+  }
+  else {
+    message("fetching cached data")
+  }
 }
